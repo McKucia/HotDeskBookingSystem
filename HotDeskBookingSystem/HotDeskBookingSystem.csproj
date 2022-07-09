@@ -40,11 +40,13 @@
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
     <None Remove="NuGet.PackageManagement" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientApp\src\components\" />
     <Folder Include="Controllers\" />
     <Folder Include="Entities\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

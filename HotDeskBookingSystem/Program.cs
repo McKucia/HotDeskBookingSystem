@@ -17,6 +17,7 @@ builder.Services.AddDbContext<DeskDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<DeskSeeder>();
+builder.Services.AddScoped<IDeskService, DeskService>();
 
 var app = builder.Build();
 
