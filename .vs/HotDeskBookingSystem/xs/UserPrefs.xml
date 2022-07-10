@@ -1,14 +1,26 @@
 ﻿<Properties StartupConfiguration="{E383B1D4-E793-4B42-AB5A-3C1B1DC5A577}|Default">
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HotDeskBookingSystem/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HotDeskBookingSystem/Services/DeskService.cs">
     <Files>
-      <File FileName="HotDeskBookingSystem/Program.cs" Line="1" Column="1" />
+      <File FileName="HotDeskBookingSystem/Controllers/DeskController.cs" Line="25" Column="61" />
+      <File FileName="HotDeskBookingSystem/DeskService.cs" Line="27" Column="1" />
+      <File FileName="HotDeskBookingSystem/Program.cs" Line="20" Column="10" />
+      <File FileName="HotDeskBookingSystem/Entities/Desk.cs" Line="9" Column="23" />
+      <File FileName="HotDeskBookingSystem/DeskSeeder.cs" Line="1" Column="1" />
+      <File FileName="HotDeskBookingSystem/Migrations/20220709122852_serializer.Designer.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HotDeskBookingSystem" expanded="True">
-            <Node name="HotDeskBookingSystem" expanded="True" />
+            <Node name="HotDeskBookingSystem" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Entities" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="20220709122852_serializer.cs" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

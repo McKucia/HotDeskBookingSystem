@@ -18,10 +18,15 @@ namespace HotDeskBookingSystem
         {
             if (_dbContext.Database.CanConnect())
             {
-                if (!_dbContext.Desks.Any())
+                if (!_dbContext.Desks.Any() && !_dbContext.Reservations.Any())
                 {
                     var reservations = GetReservations();
+                    var desks = GetDesks();
+
                     _dbContext.Reservations.AddRange(reservations);
+                    _dbContext.SaveChanges();
+
+                    _dbContext.Desks.AddRange(desks);
                     _dbContext.SaveChanges();
                 }
             }
@@ -58,6 +63,55 @@ namespace HotDeskBookingSystem
             };
 
             return reservations;
+        }
+
+        private IEnumerable<Desk> GetDesks()
+        {
+            var desks = new List<Desk>()
+            {
+                new Desk()
+                {
+                    Location = new Location()
+                    {
+                        FloorNumber = 0,
+                        RoomNumber = 1
+                    }
+                },
+                new Desk()
+                {
+                    Location = new Location()
+                    {
+                        FloorNumber = 0,
+                        RoomNumber = 2
+                    }
+                },
+                new Desk()
+                {
+                    Location = new Location()
+                    {
+                        FloorNumber = 1,
+                        RoomNumber = 1
+                    }
+                },
+                new Desk()
+                {
+                    Location = new Location()
+                    {
+                        FloorNumber = 0,
+                        RoomNumber = 2
+                    }
+                },
+                new Desk()
+                {
+                    Location = new Location()
+                    {
+                        FloorNumber = 3,
+                        RoomNumber = 1
+                    }
+                }
+            };
+
+            return desks;
         }
     }
 }

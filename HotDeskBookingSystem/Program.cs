@@ -1,5 +1,6 @@
 ﻿using HotDeskBookingSystem;
 using HotDeskBookingSystem.Entities;
+using HotDeskBookingSystem.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

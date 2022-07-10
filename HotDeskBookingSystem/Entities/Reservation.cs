@@ -13,7 +13,6 @@ namespace HotDeskBookingSystem.Entities
         [Required]
         public DateTime FinishAt { get; set; }
 
-        [Required]
         public DateTime CreatedAt { get; set; }
         public int DaysDuration { get; set; }
 
