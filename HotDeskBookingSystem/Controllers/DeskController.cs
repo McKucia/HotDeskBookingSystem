@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using HotDeskBookingSystem.Entities;
 using HotDeskBookingSystem.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotDeskBookingSystem.Controllers
 {
     [Route("api/desk")]
+    [ApiController]
     public class DeskController : Controller
     {
         private readonly IDeskService _service;
@@ -18,11 +20,67 @@ namespace HotDeskBookingSystem.Controllers
             _service = service;
         }
 
+        [HttpPost("location")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddLocation([FromBody] Location location)
+        {
+            var isAdded = _service.AddLocation(location);
+
+            if(!isAdded)
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
+
+        [HttpDelete("location/{locationId}")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult RemoveLocation([FromRoute] int locationId)
+        {
+            var isRemoved = _service.RemoveLocation(locationId);
+
+            if (!isRemoved)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddDesk([FromBody] Desk desk)
+        {
+            var isRemoved = _service.AddDesk(desk);
+
+            if (!isRemoved)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+
+        [HttpDelete("{deskId}")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult RemoveDesk([FromRoute] int deskId)
+        {
+            var isRemoved = _service.RemoveDesk(deskId);
+
+            if (!isRemoved)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<Desk>> GetAll(
             [FromQuery] DateTime start,
             [FromQuery] DateTime finish,
-            [FromQuery] string orderBy = "id",
+            [FromQuery] string? orderBy = "id",
             [FromQuery(Name = "available")] bool isAvailable = false)
         {
             var desks = _service.GetAll(orderBy, isAvailable, start, finish);
@@ -37,11 +95,6 @@ namespace HotDeskBookingSystem.Controllers
             [FromQuery] DateTime start,
             [FromQuery] DateTime finish)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             var isCreated = _service.CreateReservation(deskId, employeeId, start, finish);
 
             if (isCreated)
@@ -57,11 +110,6 @@ namespace HotDeskBookingSystem.Controllers
             [FromRoute] int reservationId,
             [FromQuery] int deskId)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             var isChanged = _service.ChangeDesk(reservationId, deskId);
 
             if (isChanged)

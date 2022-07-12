@@ -7,14 +7,14 @@ namespace HotDeskBookingSystem.Entities
     {
         public int Id { get; set; }
 
-        [Required, Range(0, 3, ErrorMessage = "{0} must be greater than {1}")]
+        [Required, Range(0, 3, ErrorMessage = "{0} must be greater than {1} and not greater than {2}")]
         public int FloorNumber { get; set; }
 
-        [Required, Range(0, 5, ErrorMessage = "{0} must be greater than {1}")]
+        [Required, Range(0, 5, ErrorMessage = "{0} must be greater than {1} and not greater than {2}")]
         public int RoomNumber { get; set; }
 
 
-        public virtual Desk Desk { get; set; }
+        public virtual Desk? Desk { get; set; }
     }
 }
 

@@ -51,15 +51,48 @@ namespace HotDeskBookingSystem
                 Employee = new Employee()
                 {
                     FirstName = "Maciej",
-                    SecondName = "Kucia"
+                    SecondName = "Kucia",
+                    Email = "macikucia@onet.pl",
+                    Role = new Role()
+                    {
+                        Name = "Employee"
+                    }
                 }
             };
             reservation_1.DaysDuration =
                 ((int)reservation_1.FinishAt.Subtract(reservation_1.StartAt).TotalDays);
 
+            Reservation reservation_2 = new Reservation()
+            {
+                CreatedAt = DateTime.Now,
+                StartAt = new DateTime(2022, 7, 15, 8, 0, 0),
+                FinishAt = new DateTime(2022, 7, 20, 8, 0, 0),
+                Desk = new Desk()
+                {
+                    Status = Status.Unavailable,
+                    Location = new Location()
+                    {
+                        FloorNumber = 0,
+                        RoomNumber = 2
+                    }
+                },
+                Employee = new Employee()
+                {
+                    FirstName = "Jakub",
+                    SecondName = "Jezierczak",
+                    Email = "jakoobas@interia.pl",
+                    Role = new Role()
+                    {
+                        Name = "Admin"
+                    }
+                }
+            };
+            reservation_2.DaysDuration =
+                ((int)reservation_2.FinishAt.Subtract(reservation_2.StartAt).TotalDays);
+
             var reservations = new List<Reservation>()
             {
-                reservation_1
+                reservation_1, reservation_2
             };
 
             return reservations;

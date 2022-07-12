@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HotDeskBookingSystem.Entities
 {
-    public class Employee
+    public class RegisterEmployeeDto
     {
         public int Id { get; set; }
 
@@ -17,13 +17,11 @@ namespace HotDeskBookingSystem.Entities
         [Required, MaxLength(25), MinLength(5)]
         public string SecondName { get; set; }
 
-        public string PasswordHash { get; set; }
+        [Required]
+        [MinLength(6)]
+        public string Password { get; set; }
 
-
-        public virtual List<Reservation> Reservations { get; set; }
-
-        public int? RoleId { get; set; }
-        public virtual Role Role { get; set; }
+        public int RoleId { get; set; } = 2; // employee
     }
 }
 

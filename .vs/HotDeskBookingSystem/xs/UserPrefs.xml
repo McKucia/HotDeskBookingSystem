@@ -1,13 +1,23 @@
 ﻿<Properties StartupConfiguration="{E383B1D4-E793-4B42-AB5A-3C1B1DC5A577}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HotDeskBookingSystem/Services/DeskService.cs">
+  <MonoDevelop.Ide.ItemProperties.HotDeskBookingSystem PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/macbookpro/Documents/mc/Programowanko/HotDeskBookingSystem/HotDeskBookingSystem/Services/ReservationService.cs" relfile="HotDeskBookingSystem/Services/ReservationService.cs" line="22" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HotDeskBookingSystem/HotDeskBookingSystem.csproj">
     <Files>
-      <File FileName="HotDeskBookingSystem/Controllers/DeskController.cs" Line="25" Column="61" />
-      <File FileName="HotDeskBookingSystem/DeskService.cs" Line="27" Column="1" />
-      <File FileName="HotDeskBookingSystem/Program.cs" Line="20" Column="10" />
-      <File FileName="HotDeskBookingSystem/Entities/Desk.cs" Line="9" Column="23" />
-      <File FileName="HotDeskBookingSystem/DeskSeeder.cs" Line="1" Column="1" />
-      <File FileName="HotDeskBookingSystem/Migrations/20220709122852_serializer.Designer.cs" Line="1" Column="1" />
+      <File FileName="HotDeskBookingSystem/Controllers/DeskController.cs" Line="14" Column="40" />
+      <File FileName="HotDeskBookingSystem/Services/DeskService.cs" Line="9" Column="99" />
+      <File FileName="HotDeskBookingSystem/Entities/Location.cs" Line="17" Column="29" />
+      <File FileName="HotDeskBookingSystem/Controllers/AccountController.cs" Line="35" Column="28" />
+      <File FileName="HotDeskBookingSystem/Entities/RegisterEmployeeDto.cs" Line="23" Column="1" />
+      <File FileName="HotDeskBookingSystem/Entities/Desk.cs" Line="21" Column="1" />
+      <File FileName="HotDeskBookingSystem/Entities/Employee.cs" Line="1" Column="1" />
+      <File FileName="HotDeskBookingSystem/Entities/Reservation.cs" Line="1" Column="1" />
+      <File FileName="HotDeskBookingSystem/HotDeskBookingSystem.csproj" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,10 +25,6 @@
           <Node name="HotDeskBookingSystem" expanded="True">
             <Node name="HotDeskBookingSystem" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Entities" expanded="True" />
-              <Node name="Migrations" expanded="True">
-                <Node name="20220709122852_serializer.cs" expanded="True" />
-              </Node>
               <Node name="Services" expanded="True" />
             </Node>
           </Node>
@@ -27,12 +33,12 @@
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
       </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="HotDeskBookingSystem" selected="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.HotDeskBookingSystem PreferredExecutionTarget="/Applications/Firefox.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>

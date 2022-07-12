@@ -12,6 +12,7 @@ namespace HotDeskBookingSystem.Entities
         public DbSet<Desk> Desks { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

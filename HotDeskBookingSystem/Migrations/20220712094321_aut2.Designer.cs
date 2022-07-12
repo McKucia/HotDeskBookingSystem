@@ -3,6 +3,7 @@ using System;
 using HotDeskBookingSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HotDeskBookingSystem.Migrations
 {
     [DbContext(typeof(DeskDbContext))]
-    partial class DeskDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220712094321_aut2")]
+    partial class aut2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +43,7 @@ namespace HotDeskBookingSystem.Migrations
                     b.HasIndex("LocationId")
                         .IsUnique();
 
-                    b.ToTable("Desks", (string)null);
+                    b.ToTable("Desks");
                 });
 
             modelBuilder.Entity("HotDeskBookingSystem.Entities.Employee", b =>
@@ -52,18 +54,10 @@ namespace HotDeskBookingSystem.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("character varying(25)");
-
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<int?>("RoleId")
                         .HasColumnType("integer");
@@ -77,7 +71,7 @@ namespace HotDeskBookingSystem.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("HotDeskBookingSystem.Entities.Location", b =>
@@ -96,7 +90,7 @@ namespace HotDeskBookingSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Locations", (string)null);
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("HotDeskBookingSystem.Entities.Reservation", b =>
@@ -131,7 +125,7 @@ namespace HotDeskBookingSystem.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Reservations", (string)null);
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("HotDeskBookingSystem.Entities.Role", b =>
@@ -148,7 +142,7 @@ namespace HotDeskBookingSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("HotDeskBookingSystem.Entities.Desk", b =>

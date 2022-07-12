@@ -23,6 +23,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +43,8 @@
     <None Remove="NuGet.PackageManagement" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Services\" />
+    <None Remove="Microsoft.AspNetCore.Identity" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientApp\src\components\" />
