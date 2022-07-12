@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using HotDeskBookingSystem.Entities;
 using HotDeskBookingSystem.Services;
@@ -77,6 +78,7 @@ namespace HotDeskBookingSystem.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult<IEnumerable<Desk>> GetAll(
             [FromQuery] DateTime start,
             [FromQuery] DateTime finish,
@@ -89,13 +91,14 @@ namespace HotDeskBookingSystem.Controllers
         }
 
         [HttpPost("reserve/{deskId}")]
+        [Authorize]
         public ActionResult BookDesk(
             [FromRoute] int deskId,
-            [FromQuery] int employeeId,
             [FromQuery] DateTime start,
             [FromQuery] DateTime finish)
         {
-            var isCreated = _service.CreateReservation(deskId, employeeId, start, finish);
+            var employeeId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var isCreated = _service.CreateReservation(deskId, Int32.Parse(employeeId), start, finish);
 
             if (isCreated)
             {
@@ -106,11 +109,14 @@ namespace HotDeskBookingSystem.Controllers
         }
 
         [HttpPost("change/{reservationId}")]
+        [Authorize]
         public ActionResult ChangeDesk(
             [FromRoute] int reservationId,
             [FromQuery] int deskId)
         {
-            var isChanged = _service.ChangeDesk(reservationId, deskId);
+            var employeeId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var isChanged = _service.ChangeDesk(reservationId, deskId, Int32.Parse(employeeId));
 
             if (isChanged)
             {

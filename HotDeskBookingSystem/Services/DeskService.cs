@@ -8,7 +8,7 @@ namespace HotDeskBookingSystem.Services
     {
         IEnumerable<Desk> GetAll(string orderBy, bool isAvailable, DateTime start, DateTime finish);
         bool CreateReservation(int deskId, int employeeId, DateTime start, DateTime finish);
-        bool ChangeDesk(int reservationId, int deskId);
+        bool ChangeDesk(int reservationId, int deskId, int employeeId);
         bool AddLocation(Location location);
         bool RemoveLocation(int locationId);
         bool AddDesk(Desk desk);
@@ -108,11 +108,17 @@ namespace HotDeskBookingSystem.Services
             return true;
         }
 
-        public bool ChangeDesk(int reservationId, int deskId)
+        public bool ChangeDesk(int reservationId, int deskId, int employeeId)
         {
             var reservation = _dbContext
                 .Reservations
+                .Include(r => r.Employee)
                 .FirstOrDefault(r => r.Id == reservationId);
+
+            if(!(reservation.Employee.Id == employeeId))
+            {
+                return false;
+            }
 
             var desk = _dbContext
                 .Desks
